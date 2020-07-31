@@ -1,0 +1,16 @@
+[package]
+name = "dalek-rust-test"
+version = "0.1.0"
+authors = ["Hammad Tariq <hammadtariq@yahoo.co.uk>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies.bulletproofs]
+git = "https://github.com/dalek-cryptography/bulletproofs"
+branch = "develop"
+features = ["yoloproofs"]
+
+[dependencies]
+curve25519-dalek = { version = "2", features = ["serde"] }
+

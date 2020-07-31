@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/Users/hammadtariq/go/src/github.com/hammadtq/dalek-go-test/dalek-rust-test/target/debug/build/typenum-91c393f1270a4533/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/Users/hammadtariq/go/src/github.com/hammadtq/dalek-go-test/dalek-rust-test/target/debug/build/typenum-91c393f1270a4533/out/op.rs
