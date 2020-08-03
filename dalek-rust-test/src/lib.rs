@@ -1,5 +1,9 @@
+extern crate byteorder;
+
+use byteorder::{ByteOrder, LittleEndian, WriteBytesExt};
+use std::mem;
 use bulletproofs::{PedersenGens};
-use curve25519_dalek::ristretto::CompressedRistretto;
+use curve25519_dalek::ristretto::{CompressedRistretto,RistrettoPoint};
 
 pub fn generate_pc() -> CompressedRistretto {
 
@@ -24,6 +28,16 @@ mod tests {
 
         println!("h_base_point: {:?}", h_base_point);
         println!("h_generated_by_go: {:?}", h_generated_by_go);
+    }
+
+    #[test]
+    fn uniform_bytes_test() {
+
+        let mut buf = [0; 64];
+        LittleEndian::write_u64(&mut buf, 41);
+
+        println!("original {:?}", RistrettoPoint::from_uniform_bytes(&buf).compress());
+        assert_eq!(41, LittleEndian::read_u64(&buf));
     }
     
 }

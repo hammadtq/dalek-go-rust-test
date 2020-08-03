@@ -13,4 +13,5 @@ features = ["yoloproofs"]
 
 [dependencies]
 curve25519-dalek = { version = "2", features = ["serde"] }
+byteorder = "*"
 

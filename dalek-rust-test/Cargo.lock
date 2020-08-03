@@ -92,6 +92,7 @@ name = "dalek-rust-test"
 version = "0.1.0"
 dependencies = [
  "bulletproofs",
+ "byteorder",
  "curve25519-dalek",
 ]
 
