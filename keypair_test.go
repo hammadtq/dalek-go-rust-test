@@ -10,16 +10,6 @@ import (
 	"golang.org/x/crypto/sha3"
 )
 
-func int32ToScalar(bl int64) (*r255.Element, error) {
-
-	blslice := make([]byte, 64)
-	binary.LittleEndian.PutUint64(blslice, uint64(bl))
-
-	intScalar := r255.NewElement().FromUniformBytes(blslice)
-
-	return intScalar, nil
-}
-
 // TestGenerateBasePair generates a base keypair with using a static scalar
 func TestGenerateBasePair(t *testing.T) {
 
@@ -53,13 +43,15 @@ func TestGenerateBasePair(t *testing.T) {
 func TestFromUniformBytes(t *testing.T) {
 
 	blslice := make([]byte, 64)
-	binary.LittleEndian.PutUint64(blslice, uint64(41000))
+	binary.LittleEndian.PutUint64(blslice, uint64(41))
 
 	uniformBytes := r255.NewElement().FromUniformBytes(blslice)
 
 	fmt.Println(uniformBytes)
 
 	uniformBytesCode := uniformBytes.Encode([]byte{})
-	fmt.Println("New Bytecode:", uniformBytesCode)
+	fmt.Println("RistrettoPoint:", uniformBytesCode)
+	//Output is: [198 186 156 131 130 12 56 146 218 125 173 151 125 45 150 150 120 236 190 97 157 126 220 173 154 195 42 237 250 5 127 57]
+	//its the same as RUST
 
 }

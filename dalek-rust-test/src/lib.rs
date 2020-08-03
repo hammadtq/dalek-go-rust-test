@@ -37,6 +37,8 @@ mod tests {
         LittleEndian::write_u64(&mut buf, 41);
 
         println!("original {:?}", RistrettoPoint::from_uniform_bytes(&buf).compress());
+        //Output is: [198, 186, 156, 131, 130, 12, 56, 146, 218, 125, 173, 151, 125, 45, 150, 150, 120, 236, 190, 97, 157, 126, 220, 173, 154, 195, 42, 237, 250, 5, 127, 57]
+        //its the same as in GO
         assert_eq!(41, LittleEndian::read_u64(&buf));
     }
     
